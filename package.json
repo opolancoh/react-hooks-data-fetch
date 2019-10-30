@@ -1,6 +1,8 @@
 {
   "name": "react-hooks-data-fetch",
   "version": "0.1.0",
+  "description": "How to fetch data with React Hooks",
+  "author": "Oscar Polanco <opolancoh@gmail.com>",
   "private": true,
   "dependencies": {
     "react": "^16.11.0",
