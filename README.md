@@ -2,7 +2,7 @@
 
 How to fetch data with React Hooks
 
-* Data fetching
+* Data fetching with forms
 * Loading indicator
 * Error handling
 
