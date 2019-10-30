@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import http from 'axios';
 
+// https://www.robinwieruch.de/react-hooks-fetch-data
+
 function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
