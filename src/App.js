@@ -1,35 +1,18 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import http from 'axios';
+import React, { useState, Fragment } from 'react';
+
+import useDataApi from './components/useDataApi';
 
 // https://www.robinwieruch.de/react-hooks-fetch-data
 
 function App() {
-  const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
-  const [search, setSearch] = useState('redux');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    async function fetchData() {
-      setIsError(false);
-      setIsLoading(true);
-      try {
-        const response = await http(`https://hn.algolia.com/api/v1/search?query=${search}`);
-        setData(response.data);
-      } catch (error) {
-        setIsError(true);
-      }
-      setIsLoading(false);
-    }
-    fetchData();
-  }, [search]);
+  const [{ data, isLoading, isError }, doFetch] = useDataApi('redux', { hits: [] });
 
   return (
     <Fragment>
       <form
         onSubmit={event => {
-          setSearch(query);
+          doFetch(query);
           event.preventDefault();
         }}
       >
